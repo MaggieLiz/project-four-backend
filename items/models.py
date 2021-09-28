@@ -22,8 +22,7 @@ class Item(models.Model):
     bought_by = models.ForeignKey(
         'jwt_auth.User',
         related_name = 'item_bought',
-        blank = True,
-        default = '',
+        null = True,
         on_delete = models.CASCADE
     )
 
