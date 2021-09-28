@@ -34,7 +34,8 @@ else:
 # SECRET_KEY = 'django-insecure-os_#8yjcifdv(#im60y02tt3+4_u1e!0q6xsll^8fvf^st#5b6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if str(os.getenv('ENVIRONMENT')) == 'development' else False
+DEBUG = True 
+# if str(os.getenv('ENVIRONMENT')) == 'development' else False
 
 
 ALLOWED_HOSTS = []

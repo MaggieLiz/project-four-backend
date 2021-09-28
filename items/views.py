@@ -10,7 +10,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAu
 from .models import Item, Comment
 from .serializers import CommentSerializer, ItemSerializer, PopulatedItemSerializer
 
-class ItemListView(ListAPIView):
+class ItemListView(APIView):
     #GET ALL ITEMS
 
     permission_classes = (IsAuthenticatedOrReadOnly, )
@@ -20,23 +20,6 @@ class ItemListView(ListAPIView):
         serialized_items = PopulatedItemSerializer(items, many=True)
         return Response(serialized_items.data, status=status.HTTP_200_OK)
 
-# class ItemListView(ListCreateAPIView):
-#     '''List View for /items INDEX CREATE'''
-#     queryset = Item.objects.all()
-#     serializer_class = ItemSerializer
-#     permission_classes = (IsAuthenticatedOrReadOnly, )
-
-#     def post(self, request, item_pk):
-#         request.data['item'] = item_pk
-#         request.data['sold_by'] = request.user.id
-#         item = ItemSerializer()
-#         return Response(item.data, status=status.HTTP_201_CREATED)
-
-# class ItemCreateView(CreateAPIView):
-
-#     permission_classes = (IsAuthenticatedOrReadOnly, )
-
-#     def post(self, request, format=None):
 
 class ItemCreateView(APIView):
 
